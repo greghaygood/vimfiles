@@ -10,6 +10,8 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 
+colorscheme vividchalk
+
 set tabstop=2 "2 space tab
 set smarttab "Uses shiftwidth instead of tabstop at start of lines
 set shiftwidth=2 "Spaces to indent when using > and <
@@ -38,7 +40,8 @@ map <leader>ntf :NERDTreeFind <CR>
 
 "map <leader>t :FuzzyFinderTextMate<CR>
 
-map <leader>b :buffers<CR>:buffer<Space>
+map <leader>f :buffers<CR>:buffer<Space>
+map <leader>w :wincmd<Space>
 
 "set ofu=syntaxcomplete#Complete
 " Turn on language specific omnifuncs
@@ -53,6 +56,8 @@ au BufNewFile,BufRead *.ru set filetype=ruby
 au BufNewFile,BufRead *.thor set filetype=ruby
 au BufNewFile,BufRead *.ruhl set filetype=html
 au BufNewFile,BufRead *.less set filetype=css
+
+autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 au FileType ruby colorscheme vividchalk
 
