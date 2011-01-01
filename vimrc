@@ -2,6 +2,7 @@
 let mapleader = ","
 
 call pathogen#runtime_prepend_subdirectories(expand('~/.vimbundles'))
+silent! call pathogen#runtime_append_all_bundles()
 
 set nocompatible
 syntax on
@@ -18,10 +19,19 @@ set shiftwidth=2 "Spaces to indent when using > and <
 set autoindent "Copy indent from current line when staring a new line
 set ruler "Show the line and column number of the cursor position
 set expandtab "Expand tab character to spaces
-set backspace=start,indent
-set hlsearch "Highlight all search matches
+set backspace=indent,eol,start
 set noerrorbells  " No noise.
 set nu!
+set showcmd "display incomplete commands
+set showmode "display the mode i'm in
+set ignorecase "case-insensitive searching
+set smartcase " but case sensitive if search starts with a capital letter
+set incsearch "highlight searches as you type
+set hlsearch "Highlight all search matches
+set scrolloff=3 " show 3 lines of context around the cursor
+set title "set the terminal's title
+
+set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
 " Visual
 set showmatch  " Show matching brackets.
@@ -31,6 +41,9 @@ set mat=5  " Bracket blinking.
 " set lcs=tab:\ \ ,eol:$,trail:~,extends:>,precedes:<
 set novisualbell  " No blinking .
 set laststatus=2  " Always show status line.
+" Useful status information at bottom of screen
+"set statusline=[%n]\ %<%.99f\ %h%w%m%r%y %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(%l,%c-%v\ %)%P
+
 
 " Allows me to do ,nt to open up NerdTree
 map <leader>nt :NERDTree <CR>
@@ -38,10 +51,22 @@ map <leader>nt :NERDTree <CR>
 map <leader>ntc :NERDTreeClose <CR>
 map <leader>ntf :NERDTreeFind <CR>
 
-"map <leader>t :FuzzyFinderTextMate<CR>
-
 map <leader>f :buffers<CR>:buffer<Space>
 map <leader>w :wincmd<Space>
+
+" Tab mappings.
+map <leader>tt :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
+map <leader>tf :tabfirst<cr>
+map <leader>tl :tablast<cr>
+map <leader>tm :tabmove
+
+map <leader>t :FuzzyFinderTextMate<CR>
+
 
 "set ofu=syntaxcomplete#Complete
 " Turn on language specific omnifuncs
@@ -61,6 +86,5 @@ autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 au FileType ruby colorscheme vividchalk
 
-call pathogen#runtime_append_all_bundles()
 
 let g:ragtag_global_maps = 1 
