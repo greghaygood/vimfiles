@@ -1,7 +1,7 @@
-                                             
+
 let mapleader = ","
 
-call pathogen#runtime_prepend_subdirectories(expand('~/.vimbundles'))
+"call pathogen#runtime_prepend_subdirectories(expand('~/.vimbundles'))
 silent! call pathogen#runtime_append_all_bundles()
 
 set nocompatible
@@ -55,17 +55,17 @@ map <leader>f :buffers<CR>:buffer<Space>
 map <leader>w :wincmd<Space>
 
 " Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
+map <leader>Tt :tabnew<cr>
+map <leader>Te :tabedit
+map <leader>Tc :tabclose<cr>
+map <leader>To :tabonly<cr>
+map <leader>Tn :tabnext<cr>
+map <leader>Tp :tabprevious<cr>
+map <leader>Tf :tabfirst<cr>
+map <leader>Tl :tablast<cr>
+map <leader>Tm :tabmove
 
-map <leader>t :FuzzyFinderTextMate<CR>
+"map <leader>t :FuzzyFinderTextMate<CR>
 
 
 "set ofu=syntaxcomplete#Complete
@@ -81,6 +81,9 @@ au BufNewFile,BufRead *.ru set filetype=ruby
 au BufNewFile,BufRead *.thor set filetype=ruby
 au BufNewFile,BufRead *.ruhl set filetype=html
 au BufNewFile,BufRead *.less set filetype=css
+
+au FileType ruby setlocal foldmethod=syntax
+au FileType css setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
