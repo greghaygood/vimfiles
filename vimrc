@@ -84,6 +84,11 @@ au BufNewFile,BufRead *.less set filetype=css
 
 au FileType ruby setlocal foldmethod=syntax
 au FileType css setlocal foldmethod=indent shiftwidth=2 tabstop=2
+set foldlevelstart=20
+"augroup vimrc
+"  au BufReadPre * setlocal foldmethod=indent
+"  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+"augroup END
 
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
