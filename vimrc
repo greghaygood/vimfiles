@@ -44,6 +44,13 @@ set laststatus=2  " Always show status line.
 " Useful status information at bottom of screen
 "set statusline=[%n]\ %<%.99f\ %h%w%m%r%y %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(%l,%c-%v\ %)%P
 
+" Use the arrows to something usefull
+map <leader>bn :bn<cr>
+map <leader>bp :bp<cr>
+map <C-right> :bn<cr>
+map <C-left> :bp<cr>
+
+map <leader>t :PeepOpen<CR>
 
 " Allows me to do ,nt to open up NerdTree
 map <leader>nt :NERDTree <CR>
@@ -64,6 +71,26 @@ map <leader>Tp :tabprevious<cr>
 map <leader>Tf :tabfirst<cr>
 map <leader>Tl :tablast<cr>
 map <leader>Tm :tabmove
+
+map <leader>cwd :cd %:p:h<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Parenthesis/bracket expanding
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+vnoremap $1 <esc>`>a)<esc>`<i(<esc>
+vnoremap $2 <esc>`>a]<esc>`<i[<esc>
+vnoremap $3 <esc>`>a}<esc>`<i{<esc>
+vnoremap $$ <esc>`>a"<esc>`<i"<esc>
+vnoremap $q <esc>`>a'<esc>`<i'<esc>
+vnoremap $e <esc>`>a"<esc>`<i"<esc>
+
+" Map auto complete of (, ", ', [
+inoremap $1 ()<esc>i
+inoremap $2 []<esc>i
+inoremap $3 {}<esc>i
+inoremap $4 {<esc>o}<esc>O
+inoremap $q ''<esc>i
+inoremap $e ""<esc>i
 
 "map <leader>t :FuzzyFinderTextMate<CR>
 
