@@ -104,6 +104,7 @@ inoremap $e ""<esc>i
 "autocmd FileType ruby,eruby let g:rubycomplete_include_object = 1
 "autocmd FileType ruby,eruby let g:rubycomplete_include_objectspace = 1
 
+"au BufNewFile,BufRead *.erb set filetype=html
 au BufNewFile,BufRead *.ru set filetype=ruby
 au BufNewFile,BufRead *.thor set filetype=ruby
 au BufNewFile,BufRead *.ruhl set filetype=html
@@ -123,3 +124,11 @@ au FileType ruby colorscheme vividchalk
 
 
 let g:ragtag_global_maps = 1 
+
+" reload files with DOS line endings @ http://vim.wikia.com/wiki/VimTip1662
+autocmd BufReadPost * nested
+      \ if !exists('b:reload_dos') && !&binary && &ff=='unix' && (0 < search('\r$', 'nc')) |
+      \   let b:reload_dos = 1 |
+      \   e ++ff=dos |
+      \ endif
+
