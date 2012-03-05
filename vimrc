@@ -109,6 +109,8 @@ au BufNewFile,BufRead *.ru set filetype=ruby
 au BufNewFile,BufRead *.thor set filetype=ruby
 au BufNewFile,BufRead *.ruhl set filetype=html
 au BufNewFile,BufRead *.less set filetype=css
+au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab foldmethod=indent "nofoldenable
 
 au FileType ruby setlocal foldmethod=syntax
 au FileType css setlocal foldmethod=indent shiftwidth=2 tabstop=2
@@ -121,7 +123,6 @@ set foldlevelstart=20
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 au FileType ruby colorscheme vividchalk
-
 
 let g:ragtag_global_maps = 1 
 
