@@ -124,6 +124,8 @@ autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 au FileType ruby colorscheme vividchalk
 
+set tags=./tags;/
+
 let g:ragtag_global_maps = 1 
 
 " reload files with DOS line endings @ http://vim.wikia.com/wiki/VimTip1662
